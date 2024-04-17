@@ -13,17 +13,15 @@ class Solution {
     //Function to find two repeated elements.
     vector<int> twoRepeated (int arr[], int n) {
         // Your code here
-        map<int,int> mp;
-        vector<int> ans;
-        for(int i=0;i<n+2;i++)
-        {
-            mp[arr[i]]++;
-            if(mp[arr[i]] == 2)
-            {
-                ans.push_back(arr[i]);
+        vector<int>v;
+        int m = n+1;
+        for (int i = 0; i < n+2; i++) {
+            arr[arr[i] % m - 1] += m;
+            if ((arr[arr[i] % m - 1] / m) == 2){
+                v.push_back(arr[i] % m);
             }
         }
-        return ans;
+        return v;
     }
 };
 
