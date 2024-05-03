@@ -7,16 +7,21 @@ class Solution{
 public:
     int isPrime(int N){
         // code here
-        if(N<2) return false;
-        for(int i = 2; i<= sqrt(N); i++){
+        int cnt=0;
+        for(int i=1;i*i<=N;i++){
             if(N%i==0){
-                return false;
+                cnt++;
+                if((N/i)!=i){
+                    cnt++;
+                }
             }
         }
-        return true;
+        if(cnt==2){
+            return 1;
+        }
+        return 0;
     }
 };
-
 
 //{ Driver Code Starts.
 int main() 
