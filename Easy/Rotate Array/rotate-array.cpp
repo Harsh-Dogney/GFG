@@ -9,24 +9,30 @@ class Solution{
     
     //Function to rotate an array by d elements in counter-clockwise direction. 
     void rotateArr(int arr[], int d, int n){
+    d=d%n;
         // code here
-    d %= n;
-    if(d < 0){
-        d += n;
+     int s = 0;
+     int e = n-1;
+     while(s<e){
+         swap(arr[s], arr[e]);
+         s++;
+         e--;
+     }
+     s=0;
+     e=n-d-1;
+     while(s<e){
+         swap(arr[s], arr[e]);
+         s++;
+         e--;
+     }
+     s=n-d;
+     e=n-1;
+     while(s<e){
+         swap(arr[s], arr[e]);
+         s++;
+         e--;
+     }
     }
-    vector<int>temp(n);
-   for(int i = 0; i < n; i++){
-
-       temp[(n-d+i) % n] = arr[i];
-
-    }
-    for(int i = 0; i < n; i++){
-
-        arr[i] = temp[i];
-
-    }
-
-}
 };
 
 //{ Driver Code Starts.
