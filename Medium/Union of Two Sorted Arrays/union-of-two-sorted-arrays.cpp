@@ -13,86 +13,21 @@ class Solution{
     {
         //Your code here
         //return vector with correct order of elements
-        vector<int>ans;
-        ans.push_back(-1);
-        // vector<int>res;
-        int i=0,j=0;
-        while(i<n && j<m)
-        {
-            if(arr1[i]>arr2[j])
-            {
-                if(ans.back()!=arr2[j])
-                ans.push_back(arr2[j]);
-                j++;
-            }
-            else
-            {
-                if(ans.back()!=arr1[i])
-                ans.push_back(arr1[i]);
-                i++;
-            }
+        set<int>st;
+        for(int i =0 ; i<n ;i++){
+            st.insert(arr1[i]);
         }
         
-        while(i<n)
-        {
-             if(ans.back()!=arr1[i])
-            ans.push_back(arr1[i]);
-            i++;
+        for(int i =0 ; i<m ;i++){
+            st.insert(arr2[i]);
         }
         
-        while(j<m)
-        {
-            if(ans.back()!=arr2[j])
-            ans.push_back(arr2[j]);
-            j++;
+        vector<int>temp;
+        for(auto it:st){
+            temp.push_back(it);
         }
-         auto it = ans.begin();
-         ans.erase(it);
-        //  ans.pop_front();
-         return ans;
-        /*int n = arr1.size();
-        int m = arr2.size();
-        int i=0;
-        int j=0;
-        vector<int> unionarr;
-        
-        while (i<n && j<m){
-            if(arr1[i]<=arr2[j]){
-                if(unionarr.size()==0  || 
-                unionarr.back() != arr1[i]){
-                    unionarr.push_back(arr1[i]);
-                }
-                i++;
-            }
-            else {
-                if(unionarr.size()==0  || 
-                unionarr.back() != arr2[j]){
-                    unionarr.push_back(arr2[j]);
-                }
-                j++;
-            }
-            
-        }
-       
-       while(j<m){
-            if(unionarr.size()==0  || 
-                unionarr.back() != arr2[j]){
-                    unionarr.push_back(arr2[j]);
-                }
-                j++;
-       } 
-        
-       while(i<n){
-           if(unionarr.size()==0  || 
-                unionarr.back() != arr1[i]){
-                    unionarr.push_back(arr1[i]);
-                }
-                i++;
-       }
-        
-        return unionarr;*/
+        return temp;
     }
-    
 };
 
 //{ Driver Code Starts.
