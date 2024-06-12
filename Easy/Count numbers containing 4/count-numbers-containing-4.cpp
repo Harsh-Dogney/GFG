@@ -18,7 +18,7 @@ class Solution {
                 int rem= num%10;
                 if(rem==4){
                     cnt++;
-                    break;
+                   break;
                 }
                 num=num/10;
             }
