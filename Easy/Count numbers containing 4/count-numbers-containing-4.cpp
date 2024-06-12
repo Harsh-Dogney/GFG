@@ -8,24 +8,25 @@ using namespace std;
 class Solution {
   public:
     int countNumberswith4(int n) {
-        int cnt =0;
         if(n<4){
             return 0;
         }
+        int cnt =0;
         for(int i=4;i<=n;i++){
             int num =i;
-            while(num !=0){
-                int rem= num%10;
+            while(num!=0){
+                int rem=num%10;
                 if(rem==4){
                     cnt++;
-                   break;
+                    break;
                 }
-                num=num/10;
+               num=num/10;
             }
         }
         return cnt;
     }
 };
+
 
 
 //{ Driver Code Starts.
