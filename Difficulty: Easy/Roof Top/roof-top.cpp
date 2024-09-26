@@ -9,21 +9,20 @@ class Solution {
   public:
     // Function to find maximum number of consecutive steps
     // to gain an increase in altitude with each step.
-    int maxStep(vector<int>& a) {
-    int count=0;
-        int maxi=0;
-        
-        for(int i=0;i<a.size()-1;i++){
-            
-            if(a[i]<a[i+1]){
-                count++;
-            }else{
-                maxi=max(maxi,count);
-                count=0;
-            }
+    int maxStep(vector<int>& arr) {
+    int cnt =0;
+    int maxi=0;
+    for(int i =0;i<arr.size()-1;i++){
+        if(arr[i]<arr[i+1]){
+            cnt++;
         }
-        maxi=max(maxi,count);
-        return maxi;
+        else{
+            maxi=max(maxi,cnt);
+            cnt=0;
+        }
+    }
+    maxi= max(maxi,cnt);
+    return maxi;
     }
 };
 
