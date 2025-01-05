@@ -47,14 +47,14 @@ class Solution {
         {
             return -1;
         }
-        int n = k-1;
+        
         int con = count-k;
         struct Node* ptr = head;
-        for(int i=1;i<=con;i++)
+        for(int i=0;i<con;i++)
         {
             ptr = ptr->next;
         }
-        return ptr->data;    // Your code here
+        return ptr->data;
     }
 };
 
