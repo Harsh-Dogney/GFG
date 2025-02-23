@@ -10,9 +10,10 @@ using namespace std;
 class Solution{   
 public:
     pair<int, int> get(int a, int b){
-    
-    swap(a,b);
-    return{ a,b};
+    a=a^b;
+    b=a^b;
+    a=a^b;
+    return {a,b};
     }
 };
 
@@ -31,7 +32,9 @@ int main()
         pair<int, int>p = ob.get(a, b);
         cout << p.first << ' ' << p.second << endl;
     
-    }
+    
+cout << "~" << "\n";
+}
     return 0; 
 } 
 
