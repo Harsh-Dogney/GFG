@@ -12,7 +12,7 @@ class Solution {
   public:
     // Function to check if Kth bit is set or not.
     bool checkKthBit(int n, int k) {
-        return (n>>k)&1;
+    return (n & (1 << k)) != 0;
     }
 };
 
@@ -29,9 +29,10 @@ int main() {
         cin >> k; // bit number k
         Solution obj;
         if (obj.checkKthBit(n, k))
-            cout << "Yes" << endl;
+            cout << "true" << endl;
         else
-            cout << "No" << endl;
+            cout << "false" << endl;
+        cout << "~" << endl;
     }
     return 0;
 }
