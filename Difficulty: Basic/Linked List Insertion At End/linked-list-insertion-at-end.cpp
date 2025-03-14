@@ -23,6 +23,7 @@ void printList(Node* node) {
 
 
 // } Driver Code Ends
+
 /*Structure of the linked list node is as
 struct Node {
   int data;
@@ -36,18 +37,21 @@ struct Node {
 class Solution {
   public:
     Node *insertAtEnd(Node *head, int x) {
-      Node *temp = head; 
-      if(head == NULL){
-          return new Node(x);
-      }
-      while(temp ->next != NULL){
-          temp = temp->next;
-      }
-      Node * Newnode = new Node(x);
-      temp->next = Newnode;
-        return head;  
+    Node *temp=head;
+      if(head==NULL){
+            Node* lastNode=new Node(x);
+            return lastNode;
+        }
+     while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        Node* lastNode=new Node(x);
+        temp->next=lastNode;
+        return head;
+    
     }
 };
+
 
 
 //{ Driver Code Starts.
@@ -88,8 +92,8 @@ int main() {
         Solution ob;
         Node* ans = ob.insertAtEnd(head, x);
         printList(ans);
+        cout << "~\n";
     }
-
     return 0;
 }
 // } Driver Code Ends
